@@ -1,0 +1,53 @@
+<group name="suricata,">
+
+  <!-- Elevate ET DROP blocklisted IP alerts — frequency suppressed -->
+  <rule id="100300" level="10" timeframe="3600" frequency="5">
+    <if_matched_sid>86601</if_matched_sid>
+    <match>ET DROP</match>
+    <description>Suricata: Known malicious IP — ET DROP blocklisted source</description>
+    <mitre>
+      <id>T1595</id>
+    </mitre>
+  </rule>
+
+  <!-- Elevate ET CINS threat intelligence alerts — frequency suppressed -->
+  <rule id="100301" level="10" timeframe="3600" frequency="5">
+    <if_matched_sid>86601</if_matched_sid>
+    <match>ET CINS</match>
+    <description>Suricata: Active threat intelligence match</description>
+    <mitre>
+      <id>T1595</id>
+    </mitre>
+  </rule>
+
+  <!-- Elevate ET SCAN reconnaissance alerts — frequency suppressed -->
+  <rule id="100302" level="8" timeframe="3600" frequency="5">
+    <if_matched_sid>86601</if_matched_sid>
+    <match>ET SCAN</match>
+    <description>Suricata: Network reconnaissance detected from $(data.src_ip)</description>
+    <mitre>
+      <id>T1046</id>
+    </mitre>
+  </rule>
+
+  <!-- Elevate ET EXPLOIT alerts — no suppression, every hit counts -->
+  <rule id="100303" level="12">
+    <if_sid>86601</if_sid>
+    <match>ET EXPLOIT</match>
+    <description>Suricata: Exploit attempt detected from $(data.src_ip)</description>
+    <mitre>
+      <id>T1190</id>
+    </mitre>
+  </rule>
+
+  <!-- Elevate ET MALWARE alerts — no suppression, every hit counts -->
+  <rule id="100304" level="12">
+    <if_sid>86601</if_sid>
+    <match>ET MALWARE</match>
+    <description>Suricata: Malware traffic detected from $(data.src_ip)</description>
+    <mitre>
+      <id>T1071</id>
+    </mitre>
+  </rule>
+
+</group>

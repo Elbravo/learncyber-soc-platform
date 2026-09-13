@@ -1,0 +1,164 @@
+<group name="lcacademy,soc,">
+
+  <!-- SSH Brute Force Detection -->
+  <rule id="100001" level="10" timeframe="120" frequency="5">
+    <if_matched_sid>5710</if_matched_sid>
+    <description>SOC-LAB: SSH Brute Force — multiple login attempts detected</description>
+    <group>authentication_failures,brute_force,</group>
+    <mitre>
+      <id>T1110</id>
+    </mitre>
+  </rule>
+
+  <!-- Successful SSH Login after brute force from same IP -->
+  <rule id="100002" level="12" timeframe="120">
+    <if_matched_sid>5715</if_matched_sid>
+    <same_source_ip />
+    <description>SOC-LAB: Successful SSH login from IP that was brute forcing</description>
+    <group>authentication_success,brute_force,</group>
+    <mitre>
+      <id>T1110</id>
+    </mitre>
+  </rule>
+
+  <!-- Privilege Escalation via Sudo -->
+  <rule id="100003" level="10">
+    <if_sid>5402</if_sid>
+    <match>sudo</match>
+    <description>SOC-LAB: Privilege escalation via sudo detected</description>
+    <group>privilege_escalation,</group>
+    <mitre>
+      <id>T1548.003</id>
+    </mitre>
+  </rule>
+
+  <!-- New user created -->
+  <rule id="100004" level="10">
+    <if_sid>5901</if_sid>
+    <description>SOC-LAB: New user account created</description>
+    <group>persistence,account_manipulation,</group>
+    <mitre>
+      <id>T1136</id>
+    </mitre>
+  </rule>
+
+  <!-- Crontab modification -->
+  <rule id="100005" level="10">
+    <if_sid>533</if_sid>
+    <match>crontab</match>
+    <description>SOC-LAB: Crontab modification detected — potential persistence</description>
+    <group>persistence,</group>
+    <mitre>
+      <id>T1053.003</id>
+    </mitre>
+  </rule>
+
+  <!-- File download via wget/curl -->
+  <rule id="100006" level="10">
+    <if_sid>533</if_sid>
+    <match>wget|curl -O</match>
+    <description>SOC-LAB: File download tool detected — potential ingress tool transfer</description>
+    <group>ingress_tool_transfer,</group>
+    <mitre>
+      <id>T1105</id>
+    </mitre>
+  </rule>
+
+  <!-- Chmod modification -->
+  <rule id="100007" level="8">
+    <if_sid>533</if_sid>
+    <match>chmod 777|chmod 4755|chmod 755</match>
+    <description>SOC-LAB: Suspicious file permission modification detected</description>
+    <group>defense_evasion,</group>
+    <mitre>
+      <id>T1222</id>
+    </mitre>
+  </rule>
+
+  <!-- Log deletion attempt -->
+  <rule id="100008" level="12">
+    <if_sid>533</if_sid>
+    <match>history -c</match>
+    <description>SOC-LAB: Log deletion attempt — indicator removal on host</description>
+    <group>defense_evasion,indicator_removal,</group>
+    <mitre>
+      <id>T1070</id>
+    </mitre>
+  </rule>
+
+  <!-- Network discovery commands -->
+  <rule id="100009" level="8">
+    <if_sid>533</if_sid>
+    <match>netstat|nmap|masscan|arp -a</match>
+    <description>SOC-LAB: Network discovery command detected</description>
+    <group>discovery,network_discovery,</group>
+    <mitre>
+      <id>T1046</id>
+    </mitre>
+  </rule>
+
+  <!-- /etc/passwd access -->
+  <rule id="100010" level="10">
+    <if_sid>533</if_sid>
+    <match>cat /etc/passwd|cat /etc/shadow</match>
+    <description>SOC-LAB: Sensitive file access — credential file read attempt</description>
+    <group>credential_access,</group>
+    <mitre>
+      <id>T1003.008</id>
+    </mitre>
+  </rule>
+
+  <!-- Sustained SSH Brute Force escalation -->
+  <rule id="100011" level="12" timeframe="300" frequency="20">
+    <if_matched_sid>100001</if_matched_sid>
+    <description>SOC-LAB: Sustained SSH Brute Force — high volume attack in progress</description>
+    <group>brute_force,authentication_failures,</group>
+    <mitre>
+      <id>T1110</id>
+    </mitre>
+  </rule>
+
+  <!-- DDoS level SSH attack -->
+  <rule id="100012" level="14" timeframe="60" frequency="50">
+    <if_matched_sid>100001</if_matched_sid>
+    <description>SOC-LAB: DDoS level SSH attack — server stability at risk</description>
+    <group>brute_force,ddos,</group>
+    <mitre>
+      <id>T1110</id>
+    </mitre>
+  </rule>
+
+  <!-- Suppress monitor device connections -->
+  <rule id="100013" level="0">
+    <if_sid>60227</if_sid>
+    <field name="data.win.eventdata.className">Monitor</field>
+    <description>False positive suppressed: Monitor device connection - benign hardware</description>
+  </rule>
+
+  <!-- Suppress Windows report signature summary -->
+  <rule id="100014" level="0">
+    <if_sid>60608</if_sid>
+    <description>False positive suppressed: Windows report signature summary</description>
+  </rule>
+
+  <!-- Suppress Windows software protection service scheduler -->
+  <rule id="100015" level="0">
+    <if_sid>60642</if_sid>
+    <description>False positive suppressed: Windows software protection scheduled</description>
+  </rule>
+
+  <!-- Suppress PowerShell execution policy test files -->
+  <rule id="100016" level="0">
+    <if_sid>92213</if_sid>
+    <field name="data.win.eventdata.targetFilename">__PSScriptPolicyTest_</field>
+    <description>False positive suppressed: PowerShell execution policy test file - benign Windows behaviour</description>
+  </rule>
+
+  <!-- False positive suppression — snap daemon -->
+  <rule id="100099" level="0">
+    <if_sid>5402</if_sid>
+    <match>snap_daemon</match>
+    <description>False positive suppressed: snap_daemon sudo — confirmed benign</description>
+  </rule>
+
+</group>

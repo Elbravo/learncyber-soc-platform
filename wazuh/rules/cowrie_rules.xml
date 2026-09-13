@@ -1,0 +1,84 @@
+<group name="cowrie,honeypot,lcacademy,">
+
+  <!-- Cowrie: New connection -->
+  <rule id="200001" level="5">
+    <decoded_as>json</decoded_as>
+    <field name="eventid">cowrie.session.connect</field>
+    <description>Cowrie Honeypot: New connection from $(data.src_ip)</description>
+    <group>connection,</group>
+  </rule>
+
+  <!-- Cowrie: Login failed -->
+  <rule id="200002" level="6">
+    <decoded_as>json</decoded_as>
+    <field name="eventid">cowrie.login.failed</field>
+    <description>Cowrie Honeypot: Failed login attempt — user $(data.username) from $(data.src_ip)</description>
+    <group>authentication_failures,</group>
+    <mitre>
+      <id>T1110</id>
+    </mitre>
+  </rule>
+
+  <!-- Cowrie: Login success -->
+  <rule id="200003" level="12">
+    <decoded_as>json</decoded_as>
+    <field name="eventid">cowrie.login.success</field>
+    <description>Cowrie Honeypot: SUCCESSFUL login — attacker $(data.src_ip) authenticated</description>
+    <group>authentication_success,initial_access,</group>
+    <mitre>
+      <id>T1078</id>
+    </mitre>
+  </rule>
+
+  <!-- Cowrie: Command executed -->
+  <rule id="200004" level="8">
+    <decoded_as>json</decoded_as>
+    <field name="eventid">cowrie.command.input</field>
+    <description>Cowrie Honeypot: Attacker $(data.src_ip) executed command: $(data.input)</description>
+    <group>execution,</group>
+    <mitre>
+      <id>T1059</id>
+    </mitre>
+  </rule>
+
+  <!-- Cowrie: File download -->
+  <rule id="200005" level="14">
+    <decoded_as>json</decoded_as>
+    <field name="eventid">cowrie.session.file_download</field>
+    <description>Cowrie Honeypot: Malware download detected — $(data.url) from $(data.src_ip)</description>
+    <group>ingress_tool_transfer,malware,</group>
+    <mitre>
+      <id>T1105</id>
+    </mitre>
+  </rule>
+
+  <!-- Cowrie: Session closed -->
+  <rule id="200006" level="5">
+    <decoded_as>json</decoded_as>
+    <field name="eventid">cowrie.session.closed</field>
+    <description>Cowrie Honeypot: Session closed — $(data.src_ip) duration $(data.duration)s</description>
+    <group>connection,</group>
+  </rule>
+
+  <!-- Cowrie: Brute force threshold -->
+  <rule id="200007" level="10" timeframe="60" frequency="5">
+    <if_matched_sid>200002</if_matched_sid>
+    <description>Cowrie Honeypot: SSH Brute Force — $(data.src_ip) made multiple failed attempts</description>
+    <group>brute_force,authentication_failures,</group>
+    <mitre>
+      <id>T1110</id>
+    </mitre>
+  </rule>
+
+  <!-- Cowrie: File upload attempt -->
+  <rule id="200008" level="12">
+    <decoded_as>json</decoded_as>
+    <field name="eventid">cowrie.session.file_upload</field>
+    <description>Cowrie Honeypot: File upload attempt by $(data.src_ip)</description>
+    <group>ingress_tool_transfer,</group>
+    <mitre>
+      <id>T1105</id>
+    </mitre>
+  </rule>
+
+</group>

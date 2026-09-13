@@ -1,0 +1,40 @@
+<group name="cloudflare,waf,">
+
+  <!-- Base Cloudflare event -->
+  <rule id="100200" level="6">
+    <decoded_as>json</decoded_as>
+    <field name="source">cloudflare</field>
+    <description>Cloudflare WAF event detected</description>
+  </rule>
+
+  <!-- Cloudflare block action -->
+  <rule id="100201" level="10">
+    <if_sid>100200</if_sid>
+    <match>\"action\":\"block\"</match>
+    <description>Cloudflare WAF blocked request from $(client_ip) - $(country)</description>
+    <mitre>
+      <id>T1190</id>
+    </mitre>
+  </rule>
+
+  <!-- Cloudflare challenge action -->
+  <rule id="100202" level="8">
+    <if_sid>100200</if_sid>
+    <match>\"action\":\"challenge\"</match>
+    <description>Cloudflare WAF challenged suspicious request from $(client_ip) - $(country)</description>
+    <mitre>
+      <id>T1190</id>
+    </mitre>
+  </rule>
+
+  <!-- Cloudflare credential/config file access attempt -->
+  <rule id="100203" level="12">
+    <if_sid>100201</if_sid>
+    <match>wp-config|passwd|shadow|\.env|backup</match>
+    <description>Cloudflare WAF blocked credential or config file access attempt</description>
+    <mitre>
+      <id>T1552</id>
+    </mitre>
+  </rule>
+
+</group>
