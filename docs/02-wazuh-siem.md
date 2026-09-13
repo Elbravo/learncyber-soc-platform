@@ -6,7 +6,7 @@ Wazuh 4.14.5 — deployed as an all-in-one installation (manager + indexer + das
 
 ## Access
 
-- Dashboard: `https://wazuh.lcacademy.uk`
+- Dashboard: `https://wazuh.yourdomain.com`
 - API: `https://localhost:55000` (internal only)
 - Authentication: SSO via LearnCyber Academy management system
 

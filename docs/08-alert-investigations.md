@@ -78,7 +78,7 @@ User-Agent: Mozilla/5.0 zgrab/0.x
 Method: GET
 URL: /
 Protocol: HTTP/1.1
-Response: 301 redirect to https://wazuh.lcacademy.uk
+Response: 301 redirect to https://wazuh.yourdomain.com
 ```
 
 **MITRE ATT&CK:** T1595 — Active Scanning, T1046 — Network Service Discovery

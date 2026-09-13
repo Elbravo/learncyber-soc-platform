@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
 Cloudflare WAF to Wazuh Event Poller
-LearnCyber Academy | lcacademy.uk
+LearnCyber Academy | yourdomain.com
 
 Polls the Cloudflare GraphQL API for security events and writes them
 to a log file monitored by Wazuh. Runs as a systemd service.
@@ -101,7 +101,7 @@ def write_to_log(events):
             log_entry = {
                 "timestamp":   event.get("datetime"),
                 "source":      "cloudflare",
-                "zone":        "lcacademy.uk",
+                "zone":        "yourdomain.com",
                 "action":      event.get("action"),
                 "client_ip":   event.get("clientIP"),
                 "country":     event.get("clientCountryName"),

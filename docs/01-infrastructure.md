@@ -49,7 +49,7 @@ sudo netfilter-persistent save
 
 Nginx serves as the reverse proxy for the Wazuh dashboard, handling SSL termination via Let's Encrypt.
 
-- Wazuh dashboard: `https://wazuh.lcacademy.uk`
+- Wazuh dashboard: `https://wazuh.yourdomain.com`
 - SSL: Let's Encrypt (auto-renewing)
 - Port 80 → 443 redirect for all traffic
 

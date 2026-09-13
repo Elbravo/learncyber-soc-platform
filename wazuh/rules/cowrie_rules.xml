@@ -1,4 +1,4 @@
-<group name="cowrie,honeypot,lcacademy,">
+<group name="cowrie,honeypot,soc,">
 
   <!-- Cowrie: New connection -->
   <rule id="200001" level="5">

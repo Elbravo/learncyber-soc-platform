@@ -2,7 +2,7 @@
 
 > A production-grade Security Operations Centre deployed on Oracle Cloud Infrastructure from scratch, running 24 hours a day, capturing real attacker sessions from the internet and routing them to cybersecurity interns as live investigation tasks.
 
-[![Platform Status](https://img.shields.io/badge/Status-Live-brightgreen)](https://lcacademy.uk)
+[![Platform Status](https://img.shields.io/badge/Status-Live-brightgreen)](https://yourdomain.com)
 [![Infrastructure](https://img.shields.io/badge/Cloud-Oracle%20Always%20Free-orange)](https://cloud.oracle.com)
 [![SIEM](https://img.shields.io/badge/SIEM-Wazuh%204.14.5-blue)](https://wazuh.com)
 [![IDS](https://img.shields.io/badge/IDS-Suricata%208.0.5-red)](https://suricata.io)
@@ -57,7 +57,7 @@ Internet Attackers (China, Russia, Netherlands, USA and more)
 │  │  LearnCyber Case    │  │  Academy Management System          │ │
 │  │  Management System  │  │  SSO + RBAC + Intern Dashboard      │ │
 │  │  (Custom Built by   │  │  Rolling individual intake          │ │
-│  │   Raymond Asogwa)   │  │  SOC / GRC / Cloud Security tracks  │ │
+│  │   [Lead Developer])   │  │  SOC / GRC / Cloud Security tracks  │ │
 │  └─────────────────────┘  └─────────────────────────────────────┘ │
 └──────────────────────────────────────────────────────────────────┘
 ```
@@ -127,13 +127,13 @@ learncyber-soc-platform/
 
 This infrastructure is the foundation of **LearnCyber Academy** — a UK cybersecurity work experience platform where SOC Analyst, GRC Analyst, and Cloud Security interns investigate real incidents and graduate with a portfolio of genuine professional investigation reports.
 
-**www.lcacademy.uk**
+**www.yourdomain.com**
 
 ---
 
 ## Author
 
-**Daniel Oseghale**
+**[Your Name]**
 Security Operations Lead | SOC Platform Architect
 LearnCyber Academy | LearnCyber Ltd — Swansea, Wales, UK
 

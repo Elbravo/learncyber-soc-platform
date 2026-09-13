@@ -1,4 +1,4 @@
-<group name="lcacademy,soc,">
+<group name="custom,soc,">
 
   <!-- SSH Brute Force Detection -->
   <rule id="100001" level="10" timeframe="120" frequency="5">

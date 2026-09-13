@@ -51,7 +51,7 @@ Each intern starts when they are ready rather than waiting for a cohort date. Th
 Splunk's free tier is too limited for a production environment with real traffic volumes. Wazuh is fully open source, has native honeypot and IDS integration, and runs comfortably on Always Free resources.
 
 **Building case management natively rather than using TheHive**
-TheHive is powerful but adds licensing complexity and another platform for interns to navigate. The native LearnCyber Case Management System built by Raymond Asogwa integrates directly with the management system, SSO, and Wazuh — reducing complexity and eliminating licensing costs.
+TheHive is powerful but adds licensing complexity and another platform for interns to navigate. The native LearnCyber Case Management System built by [Lead Developer] integrates directly with the management system, SSO, and Wazuh — reducing complexity and eliminating licensing costs.
 
 **Keeping Cloud Security track as AWS-only**
 The original plan included Azure in the Cloud Security track. This was dropped in favour of deep AWS-only coverage. Trying to cover both in 12 weeks would have produced surface-level knowledge of both platforms. Deep competence in one is more valuable to employers than shallow familiarity with two.

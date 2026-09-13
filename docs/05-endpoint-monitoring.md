@@ -49,7 +49,7 @@ The Wazuh dashboard provides a deployment wizard that generates the exact instal
 ```
 Wazuh Dashboard → ☰ Menu → Endpoints → Deploy new agent
 → Select: Windows MSI 32/64 bits
-→ Server address: 132.145.68.116
+→ Server address: YOUR_WAZUH_SERVER_IP
 → Agent name: staff-laptop
 → Copy generated PowerShell command
 ```
