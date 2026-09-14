@@ -108,7 +108,7 @@ learncyber-soc-platform/
 | MITRE ATT&CK techniques covered | 20+ |
 | Compliance frameworks active | 5 |
 | CIS Benchmark checks (Windows 11) | 473 |
-| Monthly infrastructure cost | £0 |
+| Monthly infrastructure cost | Varies |
 
 ---
 
