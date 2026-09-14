@@ -125,17 +125,17 @@ learncyber-soc-platform/
 
 ## What This Powers
 
-This infrastructure is the foundation of **LearnCyber Academy** — a UK cybersecurity work experience platform where SOC Analyst, GRC Analyst, and Cloud Security interns investigate real incidents and graduate with a portfolio of genuine professional investigation reports.
+This infrastructure is the foundation of **LearnCyber Academy** a UK cybersecurity work experience platform where SOC Analyst, GRC Analyst, and Cloud Security interns investigate real incidents and graduate with a portfolio of genuine professional investigation reports.
 
-**www.yourdomain.com**
+www.lcacademy.uk
 
 ---
 
 ## Author
 
-**[Your Name]**
+Daniel Oseghale
 Security Operations Lead | SOC Platform Architect
-LearnCyber Academy | LearnCyber Ltd — Swansea, Wales, UK
+LearnCyber Academy | LearnCyber Ltd - UK
 
 ---
 
