@@ -6,7 +6,6 @@
 [![Infrastructure](https://img.shields.io/badge/Cloud-Oracle%20Always%20Free-orange)](https://cloud.oracle.com)
 [![SIEM](https://img.shields.io/badge/SIEM-Wazuh%204.14.5-blue)](https://wazuh.com)
 [![IDS](https://img.shields.io/badge/IDS-Suricata%208.0.5-red)](https://suricata.io)
-[![Monthly Cost](https://img.shields.io/badge/Monthly%20Cost-%C2%A30-success)](https://cloud.oracle.com/compute/free-tier)
 
 ---
 
