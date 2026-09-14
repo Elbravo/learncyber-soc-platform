@@ -114,7 +114,7 @@ learncyber-soc-platform/
 
 ## Key Technical Achievements
 
-- **Zero-cost production infrastructure** — full SOC stack on Oracle Always Free Tier
+- **Low-cost production infrastructure** — full SOC stack on Oracle Always Free Tier, OVH and Vultr
 - **Automated alert-to-investigation pipeline** — attacker session to intern task in under 30 seconds, zero manual intervention
 - **Wazuh SSO dual-layer RBAC** — solved a complex issue where OpenSearch indexer roles and Wazuh API roles are completely separate security systems
 - **Real endpoint telemetry** — Windows 11 device generating live CIS Benchmark, PCI DSS, and MITRE ATT&CK data
